@@ -11,28 +11,36 @@ export class ProductListComponent implements OnInit {
   @ViewChildren(ProductItemComponent)
   productItems:QueryList<ProductItemComponent>;
 
+  @Input()
+  // num1:number=1;
   products:Product[]; 
 
   constructor() { 
-    // this.products=[];
-    this.products=[{
-      name:'ส้มโอ',
-      price:220
-    },
-    {
-      name:'มะละกอ',
-      price:230
-    },
-    {
-      name:'ทุเรียน',
-      price:520
-    }];
+    this.products=[];
+    // this.products=[{
+    //   name:'ส้มโอ',
+    //   price:220
+    // },
+    // {
+    //   name:'มะละกอ',
+    //   price:230
+    // },
+    // {
+    //   name:'ทุเรียน',
+    //   price:520
+    // }];
 
     // console.log(this.products);
   }
 
   ngOnInit(){
     // console.log(this.products);
+  }
+
+  pushProduct(product:Product){
+    console.log("recieve"+product);
+    this.products.push(product);
+    console.log("pushProduct() :- "+this.products);
   }
 
   selectedProduct(productComponent:ProductItemComponent){
